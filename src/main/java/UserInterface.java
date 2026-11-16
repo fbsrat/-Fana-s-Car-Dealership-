@@ -173,10 +173,44 @@ displayVehicles(vehicles);
         List<Vehicle> vehicles=dealerShip.getVehiclesByType(type);
     }
 public void processGetAllVehicleRequest(){
+        List<Vehicle> vehicles=dealerShip.getAllVehicles();
+        displayVehicles(vehicles);
 
     }
 
     public void processAddVehicleRequest() {
+        System.out.println("please enter the Vin");
+        int vin=scanner.nextInt();
+        System.out.println("please enter the Year");
+        int year=scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("please enter the Make or the name of the manufacturer");
+        String make=scanner.nextLine();
+        System.out.println(" please enter the Model ");
+String model=scanner.nextLine();
+        System.out.println(" please enter the Vehicle Type ");
+        String type=scanner.nextLine();
+        System.out.println(" please enter the Color ");
+        String color=scanner.nextLine();
+        System.out.println(" please enter the Mileage");
+        int odometer=scanner.nextInt();
+        System.out.println(" please enter the price");
+        BigDecimal price=new BigDecimal(scanner.nextLine());
+        Vehicle vehicle = new Vehicle(
+                vin, year, make, model,
+                type, color, odometer, price
+        );
+        dealerShip.addVehicle(vehicle);
+
+        DealerShipFileManager manager =
+                new DealerShipFileManager();
+
+        manager.saveDealerShip(dealerShip);
+
+        System.out.println("Vehicle added successfully!");
+
+
+
     }
 
     public void processRemoveVehicleRequest() {

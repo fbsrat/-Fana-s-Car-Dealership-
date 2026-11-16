@@ -80,8 +80,14 @@ public List<Vehicle>getVehicleByColor(String color){
     }
 
     public List<Vehicle> getVehiclesByType(String type){
+    List<Vehicle> matchingVehicles=new ArrayList<>();
+    for (Vehicle vehicle : inventory){
+        if(vehicle.getVehicleType().equalsIgnoreCase("type")){
+            matchingVehicles.add(vehicle);
+        }
+    }
 
-
+return matchingVehicles;
     }
     public List<Vehicle> getAllVehicles(){
     return inventory;
