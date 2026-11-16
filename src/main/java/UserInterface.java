@@ -121,7 +121,6 @@ public void processGetAllVehiclesRequest() {
             );
         }
     }
-
     // Implement these methods in Phase 5
 
     public void GetByPrice() {
