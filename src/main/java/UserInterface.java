@@ -42,7 +42,7 @@ public class UserInterface {
                     "             FIND YOUR DREAM CAR TODAY!\n" +
                     "    \n" +
                     "    ==============================================\n" +
-                    "                  MAIN MENU\n" +
+                    "                  🚘🚘🚘MAIN MENU🚘🚘🚘\n" +
                     "    ============================================== " );
 
             System.out.println("💰1 - Find vehicles by price");
