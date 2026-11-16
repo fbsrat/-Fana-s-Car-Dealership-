@@ -157,7 +157,6 @@ displayVehicles(vehicles);
         String color=scanner.nextLine();
         List<Vehicle> vehicles=dealerShip.getVehicleByColor(color);
     }
-
     public void processGetByMileageProcess() {
         System.out.println(" please enter the  minimum mileage ");
         int minMileage=Integer.parseInt(scanner.nextLine());

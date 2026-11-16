@@ -16,7 +16,6 @@ public DealerShip(String name,String address,String phone){
     public String getName() {
         return name;
     }
-
     public String getAddress() {
         return address;
     }
