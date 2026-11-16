@@ -209,7 +209,6 @@ String model=scanner.nextLine();
         System.out.println("Vehicle added successfully!");
 
 
-
     }
 
     public void processRemoveVehicleRequest() {

@@ -1,7 +1,5 @@
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 
 public class DealerShipFileManager {
@@ -62,6 +60,52 @@ public class DealerShipFileManager {
     }
 
     public void saveDealerShip(DealerShip dealerShip) {
-        // Leave empty for Phase 2
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("" +
+                    "C:\\\\pluralsight\\\\workbook4\\\\Car Dealershp\\\\inventory.csv\" "));
+            writer.write(
+                    dealerShip.getName() + "|" +
+                            dealerShip.getAddress() + "|" +
+                            dealerShip.getPhone()
+            );
+
+            writer.newLine();
+            for (Vehicle vehicle : dealerShip.getAllVehicles()) {
+                writer.write(vehicle.getVin() + "|" +
+                        vehicle.getYear() + "|" +
+                        vehicle.getMake() + "|" +
+                        vehicle.getModel() + "|" +
+                        vehicle.getVehicleType() + "|" +
+                        vehicle.getColor() + "|" +
+                        vehicle.getOdometer() + "|" +
+                        vehicle.getPrice() + "|"
+                );
+                writer.newLine();
+
+            }
+        } catch (IOException e) {
+            System.out.println(" error while saving the file " + e.getMessage());
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
