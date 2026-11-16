@@ -176,7 +176,6 @@ public void processGetAllVehicleRequest(){
         displayVehicles(vehicles);
 
     }
-
     public void processAddVehicleRequest() {
         System.out.println("please enter the Vin");
         int vin=scanner.nextInt();

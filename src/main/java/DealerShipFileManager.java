@@ -68,7 +68,6 @@ public class DealerShipFileManager {
                             dealerShip.getAddress() + "|" +
                             dealerShip.getPhone()
             );
-
             writer.newLine();
             for (Vehicle vehicle : dealerShip.getAllVehicles()) {
                 writer.write(vehicle.getVin() + "|" +
