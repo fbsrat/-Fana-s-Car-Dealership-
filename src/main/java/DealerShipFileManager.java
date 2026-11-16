@@ -7,7 +7,7 @@ public class DealerShipFileManager {
     public DealerShip getDealerShip() {
 
         try (BufferedReader reader = new BufferedReader(
-                new FileReader("C:\\pluralsight\\workbook4\\Car Dealershp\\inventory.csv"))) {
+                new FileReader("inventory.csv"))) {
 
             // Read the dealership information
             String line = reader.readLine();
@@ -62,7 +62,7 @@ public class DealerShipFileManager {
     public void saveDealerShip(DealerShip dealerShip) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("" +
-                    "C:\\\\pluralsight\\\\workbook4\\\\Car Dealershp\\\\inventory.csv\" "));
+                    "inventory.csv"));
             writer.write(
                     dealerShip.getName() + "|" +
                             dealerShip.getAddress() + "|" +

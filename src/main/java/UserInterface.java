@@ -14,7 +14,7 @@ public class UserInterface {
         this.dealerShip = manager.getDealerShip();
     }
 
-    private void display() {
+    public void display() {
 
         init();
 
@@ -136,10 +136,10 @@ public void getAllVehicles() {
 
  public void processGetByMakeModel() {
      System.out.println(" please enter make or the manufacturer of the car");
-     String make=scanner.nextLine();
+     String make=scanner.nextLine().trim();
      scanner.nextLine();
      System.out.println(" please enter the model of the car");
-     String model= scanner.nextLine();
+     String model= scanner.nextLine().trim();
       List<Vehicle>  vehicles=dealerShip.getVehiclesByMakeModel(make,model);
        displayVehicles(vehicles);
     }
@@ -154,22 +154,23 @@ displayVehicles(vehicles);
 
     public void processGetByColorRequest() {
         System.out.println(" please enter the color");
-        String color=scanner.nextLine();
+        String color=scanner.nextLine().trim();
         List<Vehicle> vehicles=dealerShip.getVehicleByColor(color);
+        displayVehicles(vehicles);
     }
     public void processGetByMileageProcess() {
         System.out.println(" please enter the  minimum mileage ");
-        int minMileage=Integer.parseInt(scanner.nextLine());
+        int minMileage=Integer.parseInt(scanner.nextLine().trim());
         System.out.println("plese enter the maximum mileage ");
-        int maxMileage=Integer.parseInt(scanner.nextLine());
+        int maxMileage=Integer.parseInt(scanner.nextLine().trim());
         List<Vehicle> vehicles=dealerShip.getVehiclesByMileage(minMileage,maxMileage);
-
+displayVehicles(vehicles);
     }
-
     public void processGetByTypeRequest() {
         System.out.println("please enter the type of car you are looking for");
-        String type=scanner.nextLine();
+        String type=scanner.nextLine().trim();
         List<Vehicle> vehicles=dealerShip.getVehiclesByType(type);
+        displayVehicles(vehicles);
     }
 public void processGetAllVehicleRequest(){
         List<Vehicle> vehicles=dealerShip.getAllVehicles();
@@ -183,14 +184,15 @@ public void processGetAllVehicleRequest(){
         int year=scanner.nextInt();
         scanner.nextLine();
         System.out.println("please enter the Make or the name of the manufacturer");
-        String make=scanner.nextLine();
+        String make=scanner.nextLine().trim();
         System.out.println(" please enter the Model ");
-String model=scanner.nextLine();
+String model=scanner.nextLine().trim();
         System.out.println(" please enter the Vehicle Type ");
-        String type=scanner.nextLine();
+        String type=scanner.nextLine().trim();
         System.out.println(" please enter the Color ");
-        String color=scanner.nextLine();
+        String color=scanner.nextLine().trim();
         System.out.println(" please enter the Mileage");
+        scanner.nextLine().trim();
         int odometer=scanner.nextInt();
         System.out.println(" please enter the price");
         BigDecimal price=new BigDecimal(scanner.nextLine());
@@ -222,7 +224,7 @@ String model=scanner.nextLine();
         }
             if (vehicleToRemove != null) {
 
-                dealerShip.removeVehicle();
+                dealerShip.removeVehicle(vehicleToRemove);
 
                 DealerShipFileManager manager =
                         new DealerShipFileManager();

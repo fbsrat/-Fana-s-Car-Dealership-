@@ -41,8 +41,8 @@ public DealerShip(String name,String address,String phone){
  List<Vehicle> matchingVehicles=new ArrayList<>();
 for (Vehicle vehicle: inventory){
 
-  if( vehicle. getMake().equalsIgnoreCase("make") &&
-          vehicle.getModel().equalsIgnoreCase("model") ) {
+  if( vehicle. getMake().equalsIgnoreCase(make) &&
+          vehicle.getModel().equalsIgnoreCase(model) ) {
       matchingVehicles.add(vehicle);
   }
 }
@@ -62,7 +62,7 @@ return matchingVehicles;
 public List<Vehicle>getVehicleByColor(String color){
     List<Vehicle> matchingVehicle=new ArrayList<>();
     for (Vehicle vehicle : inventory){
-        if(vehicle.getColor().equalsIgnoreCase("color")){
+        if(vehicle.getColor().equalsIgnoreCase(color)){
             matchingVehicle.add(vehicle);
         }
     }
@@ -81,7 +81,7 @@ public List<Vehicle>getVehicleByColor(String color){
     public List<Vehicle> getVehiclesByType(String type){
     List<Vehicle> matchingVehicles=new ArrayList<>();
     for (Vehicle vehicle : inventory){
-        if(vehicle.getVehicleType().equalsIgnoreCase("type")){
+        if(vehicle.getVehicleType().equalsIgnoreCase(type)){
             matchingVehicles.add(vehicle);
         }
     }
@@ -98,8 +98,8 @@ return matchingVehicles;
     }
 
 
-    public void removeVehicle(){
-
+    public void removeVehicle(Vehicle vehicle){
+inventory.remove(vehicle);
     }
 
 
