@@ -7,9 +7,9 @@ public class DealerShip {
   private String address;
   private String Phone;
   private ArrayList<Vehicle> inventory;
-public DealerShip(String name,String adress,String phone){
+public DealerShip(String name,String address,String phone){
     this.name=name;
-    this.address=adress;
+    this.address=address;
     this.Phone=phone;
     this.inventory=new ArrayList<>();
 }
@@ -24,13 +24,30 @@ public DealerShip(String name,String adress,String phone){
     public String getPhone() {
         return Phone;
     }
-    public List<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal  max){
-    return null;
+    public List<Vehicle> getVehiclesByPrice(BigDecimal minPrice, BigDecimal  maxPrice){
+        List<Vehicle> matchingVehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+
+            if (vehicle.getPrice().compareTo(minPrice) >= 0 &&
+                    vehicle.getPrice().compareTo(maxPrice) <= 0) {
+
+                matchingVehicles.add(vehicle);
+            }
+        }
+        return matchingVehicles;
 
     }
     public List<Vehicle> getVehiclesByMakeModel( String make, String model){
-    return null;
+ List<Vehicle> matchingVehicles=new ArrayList<>();
+for (Vehicle vehicle: inventory){
 
+  if( vehicle. getMake().equalsIgnoreCase("make") ||
+          vehicle.getModel().equalsIgnoreCase("model") ) {
+      matchingVehicles.add(vehicle);
+  }
+}
+return matchingVehicles;
     }
     public List<Vehicle> getVehiclesByYear( int year){
 return null;

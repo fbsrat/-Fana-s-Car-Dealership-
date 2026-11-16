@@ -1,4 +1,4 @@
-
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -6,7 +6,6 @@ public class UserInterface {
 
     private DealerShip dealerShip;
     private Scanner scanner = new Scanner(System.in);
-
     private void init() {
 
         DealerShipFileManager manager =
@@ -44,41 +43,40 @@ public class UserInterface {
             String choice = scanner.nextLine();
 
             switch (choice) {
-
                 case "1":
-                    GetByPrice();
+                    getByPrice();
                     break;
 
                 case "2":
-                    GetByMakeModel();
+                    getByMakeModel();
                     break;
 
                 case "3":
-                    GetByYear();
+                    getByYear();
                     break;
 
                 case "4":
-                    GetByColor();
+                    getByColor();
                     break;
 
                 case "5":
-                   GetByMileage();
+                   getByMileage();
                     break;
 
                 case "6":
-                   GetByType();
+                   getByType();
                     break;
 
                 case "7":
-                  GetAllVehicle();
+                  getAllVehicle();
                     break;
 
                 case "8":
-                    AddVehicle();
+                    addVehicle();
                     break;
 
                 case "9":
-                   RemoveVehicle();
+                   removeVehicle();
                     break;
 
                 case "10":
@@ -92,7 +90,7 @@ public class UserInterface {
         }
     }
 
-public void processGetAllVehiclesRequest() {
+public void getAllVehicles() {
 
         List<Vehicle> vehicles =
                 dealerShip.getAllVehicles();
@@ -122,30 +120,48 @@ public void processGetAllVehiclesRequest() {
         }
     }
     // Implement these methods in Phase 5
-    public void GetByPrice() {
-    }
+    public void getByPrice() {
 
- public void GetByMakeModel() {
-    }
+        System.out.print("Enter minimum price ");
+        BigDecimal minPrice = new BigDecimal(scanner.nextLine());
+        System.out.print("Enter maximum price: ");
+        BigDecimal maxPrice = new BigDecimal(scanner.nextLine());
 
-    public void GetByYear() {
-    }
+        List<Vehicle> vehicles =
+                dealerShip.getVehiclesByPrice(minPrice, maxPrice);
 
-    public void GetByColor() {
-    }
-
-    public void GetByMileage() {
-    }
-
-    public void GetByType() {
-    }
-public void GetAllVehicle(){
+        displayVehicles(vehicles);
 
     }
 
-    public void AddVehicle() {
+ public void getByMakeModel() {
+     System.out.println(" please enter make or the manufacturer of the car");
+     String make=scanner.nextLine();
+     scanner.nextLine();
+     System.out.println(" please enter the model of the car");
+     String model= scanner.nextLine();
+      List<Vehicle>  vehicles=dealerShip.getVehiclesByMakeModel(make,model);
+       displayVehicles(vehicles);
     }
 
-    public void RemoveVehicle() {
+    public void getByYear() {
+    }
+
+    public void getByColor() {
+    }
+
+    public void getByMileage() {
+    }
+
+    public void getByType() {
+    }
+public void getAllVehicle(){
+
+    }
+
+    public void addVehicle() {
+    }
+
+    public void removeVehicle() {
     }
 }
