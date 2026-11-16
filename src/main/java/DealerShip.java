@@ -70,11 +70,18 @@ public List<Vehicle>getVehicleByColor(String color){
     return matchingVehicle;
 }
     public List<Vehicle> getVehiclesByMileage( int minMileage, int maxMileage){
-    return null;
+    List<Vehicle> matchingVehicles=new ArrayList<>();
+    for( Vehicle vehicle:inventory){
+        if(vehicle.getOdometer()>=minMileage &&vehicle.getOdometer()<=maxMileage){
+            matchingVehicles.add(vehicle);
+        }
+    }
+    return matchingVehicles;
     }
 
     public List<Vehicle> getVehiclesByType(String type){
-return null;
+
+
     }
     public List<Vehicle> getAllVehicles(){
     return inventory;

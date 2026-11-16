@@ -44,39 +44,39 @@ public class UserInterface {
 
             switch (choice) {
                 case "1":
-                    getByPrice();
+                   processGetByPriceRequest();
                     break;
 
                 case "2":
-                    getByMakeModel();
+                   processGetByMakeModel();
                     break;
 
                 case "3":
-                    getByYear();
+                   processBYGetByYearRangeRequest();
                     break;
 
                 case "4":
-                    getByColor();
+                    processGetByColorRequest();
                     break;
 
                 case "5":
-                   getByMileage();
+                  processGetByMileageProcess();
                     break;
 
                 case "6":
-                   getByType();
+                   processGetByTypeRequest();
                     break;
 
                 case "7":
-                  getAllVehicle();
+                  processGetAllVehicleRequest();
                     break;
 
                 case "8":
-                    addVehicle();
+                    processAddVehicleRequest();
                     break;
 
                 case "9":
-                   removeVehicle();
+                   processRemoveVehicleRequest();
                     break;
 
                 case "10":
@@ -120,7 +120,7 @@ public void getAllVehicles() {
         }
     }
     // Implement these methods in Phase 5
-    public void getByPrice() {
+    public void processGetByPriceRequest() {
 
         System.out.print("Enter minimum price ");
         BigDecimal minPrice = new BigDecimal(scanner.nextLine());
@@ -134,7 +134,7 @@ public void getAllVehicles() {
 
     }
 
- public void getByMakeModel() {
+ public void processGetByMakeModel() {
      System.out.println(" please enter make or the manufacturer of the car");
      String make=scanner.nextLine();
      scanner.nextLine();
@@ -144,7 +144,7 @@ public void getAllVehicles() {
        displayVehicles(vehicles);
     }
 
-    public void getByYear() {
+    public void processBYGetByYearRangeRequest() {
         System.out.println(" please enter the minimum year ");
         int minYear=Integer.parseInt(scanner.nextLine());
         int maxYear=Integer.parseInt(scanner.nextLine());
@@ -152,24 +152,33 @@ List<Vehicle> vehicles=dealerShip.getVehiclesByYear(minYear,maxYear);
 displayVehicles(vehicles);
     }
 
-    public void getByColor() {
+    public void processGetByColorRequest() {
         System.out.println(" please enter the color");
         String color=scanner.nextLine();
         List<Vehicle> vehicles=dealerShip.getVehicleByColor(color);
     }
 
-    public void getByMileage() {
+    public void processGetByMileageProcess() {
+        System.out.println(" please enter the  minimum mileage ");
+        int minMileage=Integer.parseInt(scanner.nextLine());
+        System.out.println("plese enter the maximum mileage ");
+        int maxMileage=Integer.parseInt(scanner.nextLine());
+        List<Vehicle> vehicles=dealerShip.getVehiclesByMileage(minMileage,maxMileage);
+
     }
 
-    public void getByType() {
+    public void processGetByTypeRequest() {
+        System.out.println("please enter the type of car you are looking for");
+        String type=scanner.nextLine();
+        List<Vehicle> vehicles=dealerShip.getVehiclesByType(type);
     }
-public void getAllVehicle(){
+public void processGetAllVehicleRequest(){
 
     }
 
-    public void addVehicle() {
+    public void processAddVehicleRequest() {
     }
 
-    public void removeVehicle() {
+    public void processRemoveVehicleRequest() {
     }
 }
