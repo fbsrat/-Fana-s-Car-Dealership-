@@ -18,7 +18,7 @@ public class DealerShipFileManager {
             }
 
             String[] dealershipInfo = line.split("\\|");
-
+// creating dealership objects
             DealerShip dealerShip = new DealerShip(
                     dealershipInfo[0],
                     dealershipInfo[1],
@@ -61,6 +61,7 @@ public class DealerShipFileManager {
 
     public void saveDealerShip(DealerShip dealerShip) {
         try {
+            // writing and savinga vehicle
             BufferedWriter writer = new BufferedWriter(new FileWriter("" +
                     "inventory.csv"));
             writer.write(
