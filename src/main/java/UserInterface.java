@@ -14,7 +14,7 @@ public class UserInterface {
         this.dealerShip = manager.getDealerShip();
     }
 
-    public void display() {
+    private void display() {
 
         init();
 
@@ -145,9 +145,17 @@ public void getAllVehicles() {
     }
 
     public void getByYear() {
+        System.out.println(" please enter the minimum year ");
+        int minYear=Integer.parseInt(scanner.nextLine());
+        int maxYear=Integer.parseInt(scanner.nextLine());
+List<Vehicle> vehicles=dealerShip.getVehiclesByYear(minYear,maxYear);
+displayVehicles(vehicles);
     }
 
     public void getByColor() {
+        System.out.println(" please enter the color");
+        String color=scanner.nextLine();
+        List<Vehicle> vehicles=dealerShip.getVehicleByColor(color);
     }
 
     public void getByMileage() {

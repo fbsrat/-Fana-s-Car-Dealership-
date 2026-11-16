@@ -42,17 +42,33 @@ public DealerShip(String name,String address,String phone){
  List<Vehicle> matchingVehicles=new ArrayList<>();
 for (Vehicle vehicle: inventory){
 
-  if( vehicle. getMake().equalsIgnoreCase("make") ||
+  if( vehicle. getMake().equalsIgnoreCase("make") &&
           vehicle.getModel().equalsIgnoreCase("model") ) {
       matchingVehicles.add(vehicle);
   }
 }
 return matchingVehicles;
     }
-    public List<Vehicle> getVehiclesByYear( int year){
-return null;
-    }
+    public List<Vehicle> getVehiclesByYear( int minYear, int maxYear){
+    List<Vehicle> matchingVehicles=new ArrayList<>();
+    for(Vehicle vehicle: inventory){
 
+     if(vehicle.getYear() >=minYear && vehicle.getYear()<=maxYear){
+        matchingVehicles.add(vehicle);
+     }
+
+    }
+return matchingVehicles;
+    }
+public List<Vehicle>getVehicleByColor(String color){
+    List<Vehicle> matchingVehicle=new ArrayList<>();
+    for (Vehicle vehicle : inventory){
+        if(vehicle.getColor().equalsIgnoreCase("color")){
+            matchingVehicle.add(vehicle);
+        }
+    }
+    return matchingVehicle;
+}
     public List<Vehicle> getVehiclesByMileage( int minMileage, int maxMileage){
     return null;
     }
