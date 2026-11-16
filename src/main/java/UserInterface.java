@@ -211,5 +211,32 @@ String model=scanner.nextLine();
     }
 
     public void processRemoveVehicleRequest() {
-    }
+        System.out.println(" please enter the vin to remove a vehicle");
+        int vin=Integer.parseInt(scanner.nextLine());
+        Vehicle vehicleToRemove=null;
+        for (Vehicle vehicle:dealerShip .getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                vehicleToRemove = vehicle;
+                break;
+            }
+        }
+            if (vehicleToRemove != null) {
+
+                dealerShip.removeVehicle();
+
+                DealerShipFileManager manager =
+                        new DealerShipFileManager();
+
+                manager.saveDealerShip(dealerShip);
+
+                System.out.println("Vehicle removed successfully!");
+
+            } else {
+
+                System.out.println("Vehicle not found.");
+            }
+
+        }
+
 }
+
